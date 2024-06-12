@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>URL Shortener</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>URL Shortener</h1>
+        <form method="post">
+            <input type="url" name="original_url" placeholder="Enter the URL to shorten" required>
+            <button type="submit">Shorten</button>
+        </form>
+        {% if short_url %}
+            <p>Your shortened URL is: <a href="{{ short_url }}">{{ request.host_url }}{{ short_url }}</a></p>
+        {% endif %}
+    </div>
+</body>
+</html>
